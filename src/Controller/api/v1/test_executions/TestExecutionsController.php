@@ -57,7 +57,8 @@ Class TestExecutionsController extends AbstractController {
             unlink($kataTestPath);
 
             if ($this->thereHasBeenAnErrorDuringTestExecution($testResult)) {
-                throw new Exception('Se ha producido un error al ejecutar el test.');
+                var_dump($testExecutor);
+                throw new Exception('Se ha producido un error al ejecutar el test.' . var_export($testExecutor, true));
             }
 
             if ($this->hasTestFailed($testResult)) {
